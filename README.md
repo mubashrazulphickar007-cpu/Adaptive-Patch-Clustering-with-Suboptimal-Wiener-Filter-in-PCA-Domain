@@ -1,4 +1,4 @@
-# Adaptive-Patch-Clustering-with-Suboptimal-Wiener-Filter-in-PCA-Domain
+
 # Adaptive Patch Clustering with Suboptimal Wiener Filter in PCA Domain
 
 An image denoising implementation combining adaptive patch clustering with a suboptimal Wiener filter applied in the Principal Component Analysis (PCA) domain, evaluated across multiple noise types.
