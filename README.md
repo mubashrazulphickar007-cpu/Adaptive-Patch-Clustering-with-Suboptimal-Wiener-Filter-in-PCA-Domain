@@ -7,11 +7,9 @@ An image denoising implementation combining adaptive patch clustering with a sub
 
 Image degradation from noise introduced during acquisition is a long-standing problem in image processing. This project implements and validates a denoising pipeline where image patches are **adaptively clustered** and then denoised using a **suboptimal Wiener filter** operating in the **PCA-transformed domain** — exploiting the fact that principal components tend to capture scene structure, while trailing components mainly capture noise.
 
-The approach is evaluated on grayscale images corrupted by four distinct noise types:
+The approach is evaluated on grayscale images corrupted by noise types:
 - **Gaussian noise**
-- **Salt & pepper noise**
-- **Speckle noise**
-- **Poisson noise**
+
 
 ## 🧪 Methodology
 
