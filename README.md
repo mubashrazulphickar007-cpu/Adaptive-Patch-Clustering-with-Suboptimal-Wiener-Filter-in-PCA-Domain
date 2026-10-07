@@ -51,7 +51,43 @@ jupyter notebook <notebook_name>.ipynb
 
 ## 📈 Results
 
-*(Add: PSNR/SSIM comparison table across the four noise types, plus before/after denoising image comparisons.)*
+## 📈 Results
+
+Evaluated on a 256×256 8-bit grayscale chest X-ray image corrupted with additive Gaussian noise. Patches were extracted (8×8 → 64D), clustered via K-Means (K=8), and denoised with a suboptimal Wiener filter in the PCA domain.
+
+**Main result (σ = 25.0):**
+
+| Metric    | Noisy Input | Denoised Output | Improvement |
+|-----------|-------------|------------------|-------------|
+| MSE       | 579.17      | 44.55            | −534.62     |
+| PSNR (dB) | 20.50       | 31.64            | +11.14      |
+| SSIM      | 0.2067      | 0.8223           | +0.6157     |
+
+**Robustness across noise levels (σ sweep, 15–300):**
+
+| σ   | Noisy PSNR (dB) | Denoised PSNR (dB) | ΔPSNR  | Denoised SSIM |
+|-----|------------------|----------------------|--------|----------------|
+| 15  | 24.76            | 34.06                | +9.29  | 0.871          |
+| 25  | 20.50            | 31.64                | +11.14 | 0.822          |
+| 50  | 15.12            | 27.72                | +12.60 | 0.753          |
+| 100 | 10.46            | 21.46                | +11.00 | 0.690          |
+| 150 | 8.48             | 17.93                | +9.45  | 0.654          |
+| 200 | 7.48             | 16.05                | +8.58  | 0.616          |
+| 250 | 6.89             | 14.94                | +8.05  | 0.588          |
+| 300 | 6.52             | 14.22                | +7.70  | 0.568          |
+
+The filter delivers a consistent PSNR gain across the full tested range, with no hard failure point found up to σ = 300 — gains peak around σ = 50 (+12.6 dB) and taper gradually as noise increases.
+
+**Before / After (σ = 25.0):**
+
+![denoising comparison](milestone3_visual_matrix.png)
+
+**Across noise levels:**
+
+![restored grid](milestone4_restored_grid.png)
+![PSNR/SSIM analysis](milestone4_psnr_analysis.png)
+
+
 
 ## 📚 Reference
 
